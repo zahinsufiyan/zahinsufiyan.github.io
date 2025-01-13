@@ -8,19 +8,78 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import "../assets/styles/Timeline.scss";
-import careers from "../data/careerHistory.json";
+
+const careers = [
+  {
+    title: "Casual Research Programmer - II",
+    organisation: "University of Alberta",
+    location: "Edmonton, ALB, Canada",
+    startdate: "January 2024",
+    enddate: "Present",
+    description:
+      "Optimized GFlowNets for robotic systems, enhancing model efficiency by 35% and adaptability in real-world settings.",
+  },
+  {
+    title: "Graduate Research Assistant Fellow (GRAF)",
+    organisation: "University of Alberta",
+    location: "Edmonton, ALB, Canada",
+    startdate: "May 2022",
+    enddate: "December 2023",
+    description:
+      "Researched RL and GFlowNets for advanced machine fault adaptation in collaboration with MELCO.",
+  },
+  {
+    title: "Graduate Teaching Assistant (GTA)",
+    organisation: "University of Alberta",
+    location: "Edmonton, ALB, Canada",
+    startdate: "August 2021",
+    enddate: "April 2022",
+    description:
+      "Facilitated labs and seminars while managing grading and student support.",
+  },
+  {
+    title: "Database Developer",
+    organisation: "Hishabee Technologies Limited",
+    location: "Dhaka, Bangladesh",
+    startdate: "June 2020",
+    enddate: "December 2020",
+    description:
+      "Developed data management solutions, including schema design and query optimization.",
+  },
+  {
+    title: "Lecturer",
+    organisation: "BRAC University",
+    location: "Dhaka, Bangladesh",
+    startdate: "January 2020",
+    enddate: "April 2020",
+    description:
+      "Taught core Computer Science courses and supervised student projects.",
+  },
+  
+  {
+    title: "Teaching Assistant (TA)",
+    organisation: "BRAC University",
+    location: "Dhaka, Bangladesh",
+    startdate: "August 2019",
+    enddate: "December 2019",
+    description:
+      "Mentored students in Digital Logic Design and managed grading responsibilities.",
+  },
+];
+
 function Timeline() {
   return (
     <div id="history">
       <div className="items-container">
-        <h1>Career History</h1>
+        <h1>Work Experience</h1>
         <VerticalTimeline>
           {careers.map((career, index) => (
             <VerticalTimelineElement
+              key={index}
               className="vertical-timeline-element--work"
               contentStyle={{ background: "white", color: "rgb(39, 40, 34)" }}
               contentArrowStyle={{ borderRight: "7px solid  white" }}
-              date={career.startdate + " - " + career.enddate}
+              date={`${career.startdate} - ${career.enddate}`}
               iconStyle={{ background: "#5000ca", color: "rgb(39, 40, 34)" }}
               icon={<FontAwesomeIcon icon={faBriefcase} />}
             >
@@ -30,48 +89,10 @@ function Timeline() {
               <h4 className="vertical-timeline-element-subtitle">
                 {career.organisation}
               </h4>
+              <p className="vertical-timeline-element-subtitle">{career.location}</p>
               <p>{career.description}</p>
             </VerticalTimelineElement>
           ))}
-          {/* <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            date="2020 - 2022"
-            iconStyle={{ background: "#5000ca", color: "rgb(39, 40, 34)" }}
-            icon={<FontAwesomeIcon icon={faBriefcase} />}
-          >
-            <h3 className="vertical-timeline-element-title">
-              Full Stack Engineer
-            </h3>
-            <h4 className="vertical-timeline-element-subtitle">Laie, HI</h4>
-            <p>
-              Frontend Development, Backend Development, User Experience, Team
-              Leading
-            </p>
-          </VerticalTimelineElement> */}
-          {/* <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            date="2021 - 2021"
-            iconStyle={{ background: "#5000ca", color: "rgb(39, 40, 34)" }}
-            icon={<FontAwesomeIcon icon={faBriefcase} />}
-          >
-            <h3 className="vertical-timeline-element-title">
-              Staff Engineer Intern
-            </h3>
-            <h4 className="vertical-timeline-element-subtitle">Laie, HI</h4>
-            <p>Full-stack Development, API Development, User Experience</p>
-          </VerticalTimelineElement> */}
-          {/* <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            date="2020 - 2020"
-            iconStyle={{ background: "#5000ca", color: "rgb(39, 40, 34)" }}
-            icon={<FontAwesomeIcon icon={faBriefcase} />}
-          >
-            <h3 className="vertical-timeline-element-title">
-              Data Analyst Intern
-            </h3>
-            <h4 className="vertical-timeline-element-subtitle">Tokyo, Japan</h4>
-            <p>Automation, Data Governance, Statistical Analysis</p>
-          </VerticalTimelineElement> */}
         </VerticalTimeline>
       </div>
     </div>

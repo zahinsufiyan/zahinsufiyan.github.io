@@ -1,39 +1,58 @@
-import React, { useEffect, useState } from "react";
-import "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faReact,
-  faDocker,
-  faPython,
-} from "@fortawesome/free-brands-svg-icons";
+import React from "react";
 import Chip from "@mui/material/Chip";
 import "../assets/styles/Expertise.scss";
-import data from "../data/expertise.json";
+
+const skillsData = [
+  {
+    title: "Languages",
+    techstack: ["Python", "Java", "C++", "SQL", "C", "Linux Shell Scripting"],
+  },
+  {
+    title: "ML Frameworks and Libraries",
+    techstack: ["TensorFlow", "PyTorch", "Scikit-learn", "Keras"],
+  },
+  {
+    title: "Data Analytics Tools",
+    techstack: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Tableau", "Microsoft Excel (Pivot Tables, VLOOKUP, Macros)"],
+  },
+  {
+    title: "Cloud Platforms",
+    techstack: ["AWS", "Google Cloud", "Azure"],
+  },
+  {
+    title: "Specializations",
+    techstack: [
+      "Machine Learning",
+      "Deep Learning",
+      "Reinforcement Learning",
+      "Generative Flow Networks",
+      "LLM",
+      "Data Science/ Data analytics",
+    ],
+  },
+  {
+    title: "Research and Development",
+    techstack: [
+      "Reinforcement Learning Algorithms",
+      "Natural Language Processing",
+      "Large Language Models",
+      "Predictive Modeling",
+      "System Optimization",
+    ],
+  },
+];
 
 function Expertise() {
   return (
     <div className="container" id="expertise">
       <div className="skills-container">
-        <h1>Expertise</h1>
-
+        <h1>Skills and Interests</h1>
         <div className="skills-grid">
-          {data.map((expertise, index) => (
+          {skillsData.map((skill, index) => (
             <div key={index} className="skill">
-              {/* <FontAwesomeIcon
-                icon={
-                  expertise.icon === "faReact"
-                    ? faReact
-                    : expertise.icon === "faDocker"
-                    ? faDocker
-                    : faPython
-                }
-                size="3x"
-              /> */}
-              <h3>{expertise.title}</h3>
-              <p>{expertise.description}</p>
+              <h3>{skill.title}</h3>
               <div className="flex-chips">
-                <span className="chip-title">Tech stack:</span>
-                {expertise.techstack.map((label, i) => (
+                {skill.techstack.map((label, i) => (
                   <Chip key={i} className="chip" label={label} />
                 ))}
               </div>
